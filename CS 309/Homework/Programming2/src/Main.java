@@ -19,5 +19,5 @@ public class Main {
         System.out.println(student2.getFullName() + " has " + student2.getTestCount() + " grades and an average of "
                 + student2.getAverage());
         
-k    }
+    }
 }
