@@ -4,7 +4,7 @@
  * student data. It is built off of my Student class from my Program 2 submission
  *
  * @author  Sam Whitlock
- * @version 1.1.0
+ * @version 2.0.0
  * @since   2026-01-28
  */
 
@@ -21,25 +21,13 @@ public class Main {
 
         // Displaying the students' information
         for (Student s : students) {
-            displayStudent(s);
+            s.display();
         }
 
     }
 
 
-    // ---------------Helper Functions------------------------- 
-
-    /**
-     * Displays the student information
-     * @param Student student The student to display
-     * ! Will be moved to be a member method of Student, but that means this file will not be backwards compatible, so will be in the next version
-     */
-    public static void displayStudent(Student student) {
-        System.out.print(student.getFullName());
-        System.out.print(" has " + student.getTestCount() + " grades");
-        System.out.println(" with an average of " + student.getAverage());
-    }
-
+    // ---------------------Helper Functions------------------------- 
 
     /**
      * Gets a path from the user and ensures that it leads to a valid .txt file, then returns a scanner  

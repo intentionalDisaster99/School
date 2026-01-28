@@ -4,8 +4,8 @@
 * This is an updated simple Student class made for my CS 321 class as my submission for the Program 2 Assignment. It is built off of my Program One submission.
 *
 * @author  Sam Whitlock
-* @version 1.0.0
-* @since   2026-01-14
+* @version 1.1.0
+* @since   2026-01-28
 */
 
 import java.util.ArrayList;
@@ -116,10 +116,17 @@ public class Student {
      * @returns String String defining the Student object
      */
     public String toString() {
-        return "Student: "
-                + "firstName: \"" + firstName
-                + "\" lastName: \"" + lastName
-                + "\" Grades:\n" + grades.toString();
+        return "Student: " + "firstName: \"" + firstName + "\" lastName: \"" + lastName + "\" Grades:\n"
+                + grades.toString();
+    }
+    
+    /**
+     * Displays the student information in the format matching Programming 3
+     */
+    public void display() {
+        System.out.print(this.getFullName());
+        System.out.print(" has " + this.getTestCount() + " grades");
+        System.out.println(" with an average of " + this.getAverage());
     }
 
     // Private instance variables
