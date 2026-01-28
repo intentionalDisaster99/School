@@ -96,6 +96,9 @@ public class Main {
 
                 // Exiting if they don't want to
                 if (ans.equalsIgnoreCase("n")) {
+                    // Ensuring the input scanner is closed
+                    pancake.close();
+                    // Returning early to quit
                     return;
                 }
 
@@ -115,7 +118,7 @@ public class Main {
             }
         }
 
-        // Closing the scanner
+        // Closing the scanner input
         pancake.close();
 
         // Displaying the students' information
