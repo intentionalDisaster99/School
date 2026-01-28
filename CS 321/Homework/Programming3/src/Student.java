@@ -111,23 +111,19 @@ public class Student {
     
 
     /**
-     * Returns a String defining the Student object
-     * Not technically necessary for the assignment, but Professor Allen said it was wise to add them in our classes
+     * Returns a String defining the Student object formatted to be printed as Programming 3 requires
      * @returns String String defining the Student object
      */
     public String toString() {
-        return "Student: " + "firstName: \"" + firstName + "\" lastName: \"" + lastName + "\" Grades:\n"
-                + grades.toString();
-    }
+
+        // I was curious if I could do C style formatting and there is one built in
+        // Technically the example has 1 digit after the decimal point for the average, but grades are generally 2 so I went with 2
+        // To make it 1, you just change the %.2f to %.1f
+        return String.format("%s, %s has %d grades and an average of %.2f", this.lastName, this.firstName,
+                this.getTestCount(), this.getAverage());
+        
+    }  
     
-    /**
-     * Displays the student information in the format matching Programming 3
-     */
-    public void display() {
-        System.out.print(this.getFullName());
-        System.out.print(" has " + this.getTestCount() + " grades");
-        System.out.println(" with an average of " + this.getAverage());
-    }
 
     // Private instance variables
     private String lastName;

@@ -21,7 +21,7 @@ public class Main {
 
         // Displaying the students' information
         for (Student s : students) {
-            s.display();
+            System.out.println(s);
         }
 
     }
