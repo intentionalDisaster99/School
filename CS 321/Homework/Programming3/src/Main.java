@@ -4,7 +4,7 @@
  * student data. It is built off of my Student class from my Program 2 submission
  *
  * @author  Sam Whitlock
- * @version 2.0.0
+ * @version 2.1.1
  * @since   2026-01-28
  */
 
@@ -21,7 +21,10 @@ public class Main {
 
         // Displaying the students' information
         for (Student s : students) {
+
+            // Printing out the student object's toString (automatically called)
             System.out.println(s);
+            
         }
 
     }
@@ -33,7 +36,7 @@ public class Main {
      * Gets a path from the user and ensures that it leads to a valid .txt file, then returns a scanner  
      * that points to the file
      * @return File The file object that references the input file the user gives
-*/
+    */
     public static File getFile() {
 
         // Getting a .txt path from the user
@@ -89,8 +92,10 @@ public class Main {
     }
 
 
-    // Helper function to get a path from the user
-    public static String getPath() {
+    /**
+     * Gets a path from the user and ensures that it leads to a valid .txt file, then returns the path that it found  
+     * @return String The path to the file that the user gave
+    */    public static String getPath() {
 
         // A scanner to read the input
         Scanner input = new Scanner(System.in);
@@ -111,6 +116,10 @@ public class Main {
  
     }
 
+    /**
+     * Parses a File object for students and returns an ArrayList of the students found in that file
+     * @return  ArrayList<Student> The students found in the file
+    */
     public static ArrayList<Student> parseFileForStudents(File file) {
 
         // The list of the students that we are compiling
@@ -125,8 +134,6 @@ public class Main {
 
                 // Everything is split by spaces, so we can just use split
                 String[] tokens = fileReader.nextLine().split(" ");
-
-                System.out.println("Working on " + tokens[0]);
 
                 // Some simple error checking
                 if (tokens.length < 2) {

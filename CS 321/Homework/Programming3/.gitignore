@@ -33,3 +33,13 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Documentation ###
+*.html
+*.js
+*.css
+*.svg
+*.iml
+resources/*
+script-dir/*
+legal/
