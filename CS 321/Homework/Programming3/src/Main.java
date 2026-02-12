@@ -95,7 +95,8 @@ public class Main {
     /**
      * Gets a path from the user and ensures that it leads to a valid .txt file, then returns the path that it found  
      * @return String The path to the file that the user gave
-    */    public static String getPath() {
+    */    
+    public static String getPath() {
 
         // A scanner to read the input
         Scanner input = new Scanner(System.in);
