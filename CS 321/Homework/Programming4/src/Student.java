@@ -132,7 +132,8 @@ public class Student implements Comparable<Student> {
     public int compareTo(Student other) {
 
         // Strings already implement the comparison for us, so we can just compare two strings
-        return this.getFullName().compareTo(other.getFullName());
+        // We make them lowercase to ensure that the output is case-insensitive
+        return this.getFullName().toLowerCase().compareTo(other.getFullName().toLowerCase());
         
     }
     

@@ -6,7 +6,7 @@ out/
 
 ### Class files and Other Stuff ###
 *.class
-Programming3.iml
+*.iml
 *.pdf
 
 ### Eclipse ###

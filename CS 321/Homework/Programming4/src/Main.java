@@ -72,8 +72,6 @@ public class Main {
 
         }
 
-        // System.out.print("The ");
-
         // Printing out the header
         System.out.printf("%-" + nameWidth
                 + "s   %" + gradesWidth + "s   %" + averageWidth + "s %n", "Student Name",
