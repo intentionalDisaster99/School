@@ -2,16 +2,16 @@
  * <h1>Program Four</h1>
  *
  * @author  Sam Whitlock
- * @version 1.0.0
- * @since   2026-02-13
+ * @version 1.0.1
+ * @since   2026-02-17
  */
 
-import java.io.FileNotFoundException;
 import java.io.File;
-import java.util.Scanner;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 
 public class Main {
 
@@ -125,7 +125,7 @@ public class Main {
         // Looping until we either find one or they want to quit
         while (true) {
 
-            // Checking to see if it is a legitimate file
+            // Checking to see if it is a legitimate file'
             try (Scanner fileReader = new Scanner(file)) {
 
                 // If it opened, then we are good (the Scanner will automatically close)
@@ -177,22 +177,24 @@ public class Main {
     */
     public static String getPath() {
 
-        // A scanner to read the input
-        Scanner input = new Scanner(System.in);
+        // Safely opening a scanner 
+        try (Scanner input = new Scanner(System.in)) {
 
-        // Reading the input
-        System.out.println("Please input the path to the input file.\n");
-        String path = input.nextLine();
-
-        // Some simple error checking
-        while (!path.endsWith(".txt")) {
-            System.out.println("Make sure that the path is to a .txt file, please.");
+            // Reading the input
             System.out.println("Please input the path to the input file.\n");
-            path = input.nextLine();
-        }
+            String path = input.nextLine();
 
-        input.close();
-        return path;
+            // Some simple error checking
+            while (!path.endsWith(".txt")) {
+                System.out.println("Make sure that the path is to a .txt file, please.");
+                System.out.println("Please input the path to the input file.\n");
+                path = input.nextLine();
+            }
+
+            // Returning the path to the .txt file
+            return path;
+
+        }
 
     }
 
@@ -203,7 +205,7 @@ public class Main {
     public static ArrayList<Student> parseFileForStudents(File file) {
 
         // The list of the students that we are compiling
-        ArrayList<Student> output = new ArrayList<Student>();
+        ArrayList<Student> output = new ArrayList<>();
 
         // Opening the scanner to the file
         try (Scanner fileReader = new Scanner(file)) {
