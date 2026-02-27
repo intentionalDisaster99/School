@@ -1,0 +1,10 @@
+# ARM stuff, we only really want the arm file so excluding .o and binaries
+*
+!*.*
+!*/
+*.o
+
+# Syncthing things
+*.stfolder/*
+syncthing*
+
