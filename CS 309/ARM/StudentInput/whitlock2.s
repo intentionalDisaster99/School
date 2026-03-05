@@ -2,8 +2,8 @@
 @ Author:     Sam Whitlock
 @ Email:      scw0035@uah.edu
 @ Class Term: CS309-01 2026
-@ Purpose:    
-@
+@ Purpose:    Take simpel input from the user and print it out to learn 
+@             input and output in ARM
 @
 @ Credit:  R. Kevin Preston for initial template
 @ 
