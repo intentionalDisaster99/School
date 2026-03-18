@@ -83,6 +83,16 @@ get_int:
    LDR r5, [r1]             @ Read the contents of intInput and store in r5
 
 @***********
+check_input_range:
+@***********
+@ Checks to make sure the input is in (1,12) and jumps to the error checker if not
+
+   CMP r5, #1              @ If we subtract 1 and get a negative, it's too small
+   BMI out_of_range_error
+   CMP r5, #11             @ If we subtract 13 and it is positive or zero, it's too big
+   BPL out_of_range_error
+
+@***********
 print_input:
 @***********
 @ Prints the input out to the user
@@ -130,8 +140,8 @@ print_table_row:
    BL printf               @ Printing it
 
 @ Incrememnting and checking if we are done
-   ADD r6, r6, #1   @ Incrementing the counter
    CMP r6, r5       @ Checking to see if we need to exit
+   ADD r6, r6, #1   @ Incrementing the counter
    BEQ exit         @ Exiting if we do
 
 @ Calculating the next factorial and looping again
@@ -183,26 +193,25 @@ POP {pc}
 @ Declare the strings and data needed
 
 .balign 4
-welcomeMessage: .asciz "This program will print the factorial of the integers from 1 to a number you enter. Please 
-enter an integer number from 1 to 12 exclusive.\n\n"
+welcomeMessage: .asciz "This program will print the factorial of the integers from 1 to a number you enter.\nPlease enter an integer number from 1 to 12 exclusive.\n\n"
 
 .balign 4
 reinputMessage: .asciz "We got an error on that input, unfortunately, please try again.\n\n"
 
 .balign 4
-outOfRangePrompt: .asciz "That number is out of range, unfortunately.\n\n Program terminating.\n"
+outOfRangePrompt: .asciz "That number is out of range, unfortunately.\n\nProgram terminating.\n"
 
 .balign 4
 youEnteredMessage: .asciz "You entered %d.\n\n"
 
 .balign 4
-tableHeader: .asciz "Number      n!" @ Note, there are 6 spaces here
+tableHeader: .asciz "Number      n!\n" @ Note, there are 6 spaces here
 
 .balign 4
-tableRowBegin: .asciz "   \2d     " @ It is expected that tableRowEnd is printed directly after
+tableRowBegin: .asciz "   %2d       " @ It is expected that tableRowEnd is printed directly after
 
 .balign 4
-tableRowEnd: .asciz "d\n"
+tableRowEnd: .asciz "%d\n"
 
 @ Format pattern for scanf call.
 
