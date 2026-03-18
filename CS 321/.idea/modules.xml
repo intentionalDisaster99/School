@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CS 321.iml" filepath="$PROJECT_DIR$/.idea/CS 321.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/Programming1/Programming1.iml" filepath="$PROJECT_DIR$/Homework/Programming1/Programming1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/Programming2/Programming2.iml" filepath="$PROJECT_DIR$/Homework/Programming2/Programming2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/Programming3/Programming3.iml" filepath="$PROJECT_DIR$/Homework/Programming3/Programming3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Homework/Programming4/Programming4.iml" filepath="$PROJECT_DIR$/Homework/Programming4/Programming4.iml" />
+    </modules>
+  </component>
+</project>
