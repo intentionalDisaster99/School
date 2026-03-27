@@ -11,7 +11,7 @@
 @ History: 
 @    Date       Purpose of change
 @    ----       ----------------- 
-@  24-Mar-2026  Updated to match assignment criteria.
+@  26-Mar-2026  Updated to match assignment criteria.
 @   4-Jul-2019  Changed this code from using the stack pointer to a 
 @               locally declared variable. 
 @  15-Sep-2019  Moved some code around to make it clearer on how to 
@@ -62,8 +62,9 @@ welcome:
 @*******************
 @ Simply prints the welcome message
 
-   LDR r0, =welcomeMessage  @ Puts the message in r0 to be printed
-   BL printf                @ Calls printf on the wrlcome message
+   
+               LDR r0, =welcomeMessage  @ Puts the message in r0 to be printed
+hex_check:     BL printf                @ Calls printf on the wrlcome message
 
 
 @*******************
@@ -89,7 +90,7 @@ check_input_range:
 
    CMP r5, #1              @ If we subtract 1 and get a negative, it's too small
    BMI out_of_range_error
-   CMP r5, #11             @ If we subtract 13 and it is positive or zero, it's too big
+   CMP r5, #13             @ If we subtract 13 and it is positive or zero, it's too big
    BPL out_of_range_error
 
 @***********
@@ -142,7 +143,7 @@ print_table_row:
 @ Incrememnting and checking if we are done
    CMP r6, r5       @ Checking to see if we need to exit
    ADD r6, r6, #1   @ Incrementing the counter
-   BEQ exit         @ Exiting if we do
+   BEQ myExit         @ Exiting if we do
 
 @ Calculating the next factorial and looping again
    MUL r7, r7, r6       @ Increasing the factorial
@@ -181,9 +182,14 @@ out_of_range_error:
    BL  printf                @ Printing
 
 @*******************
-exit:
+myExit:
 @*******************
 @ End of the code. Force the exit and return control to OS
+@ Also print something out to the user so that we can easily show the register changing
+   LDR r0, =byeBye @ Prepping to print
+beforePrint: @ Simple label for before printing
+   BL printf
+afterPrint: @ Simple label for after printing
 
 @ Return to the OS
 POP {pc}
@@ -193,7 +199,10 @@ POP {pc}
 @ Declare the strings and data needed
 
 .balign 4
-welcomeMessage: .asciz "This program will print the factorial of the integers from 1 to a number you enter.\nPlease enter an integer number from 1 to 12 exclusive.\n\n"
+welcomeMessage: .asciz "This program will print the factorial of the integers from 1 to a number you enter.\nPlease enter an integer number from 1 to 12 (inclusive).\n\n"
+
+.balign 4
+byeBye: .asciz "Thank you for using this program.\n\n"
 
 .balign 4
 reinputMessage: .asciz "We got an error on that input, unfortunately, please try again.\n\n"
